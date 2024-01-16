@@ -1,13 +1,12 @@
 # <ENVIRONMENTS DIRECTORY>/<ENVIRONMENT>/manifests/site.pp
 # default minimal conf 
 node 'default' {
-  include 
 }
 
 node 'slave1.puppet' {
-  include common
+  include apache
 }
 
 node 'slave2.puppet' {
-  include 
+  include apache
 }
