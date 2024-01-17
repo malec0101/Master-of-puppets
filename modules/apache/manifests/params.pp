@@ -6,7 +6,7 @@
 #   include apache::params
 class apache::params {
   $virtual_host_name = 'example'
-  case $::osfamily {
+  case $facts['os']['family'] {
     'RedHat': {
       $package_name = 'httpd'
       $service_name = 'httpd'
