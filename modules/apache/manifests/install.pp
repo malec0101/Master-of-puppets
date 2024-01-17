@@ -7,7 +7,7 @@
 class apache::install {
   $package_name = $apache::params::package_name
 
-    package { '$package_name':
+    package { 'httpd':
       ensure => installed,
       before => File['index.html']
     }
