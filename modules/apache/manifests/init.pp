@@ -18,6 +18,6 @@ class apache (
     service { $service_name:
       ensure => running,
       enable => true,
-      subscribe => File[$config_file],
+      subscribe => File['apache/index.html'],
     }
   }

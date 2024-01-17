@@ -4,9 +4,9 @@ node 'default' {
 }
 
 node 'slave1.puppet' {
-  include apache
+  include role::apache_static_site
 }
 
 node 'slave2.puppet' {
-  include apache
+  include profile::add_static_site_on_apache
 }
