@@ -9,6 +9,7 @@ class apache::install {
 
     package { '$package_name':
       ensure => installed,
+      before => File['index.html']
     }
 }
 
