@@ -8,5 +8,5 @@ node 'slave1.puppet' {
 }
 
 node 'slave2.puppet' {
-  include profile::add_static_site_on_apache
+  include role::apache_dynamic_site
 }
