@@ -1,7 +1,11 @@
 class profile::add_static_site_on_apache {
   class { 'apache':
-    virtual_host_name => 'static'
-  }
+    default_vhost     => false,
+    default_ssl_vhost => false,
+    }
+    Apache::Vhost { 'static':
+    port          => 80,
+    docroot       => '/var/www/html'
 }
 
 

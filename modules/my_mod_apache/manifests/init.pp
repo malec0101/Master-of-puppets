@@ -4,7 +4,7 @@
 #
 # @example
 #   include apache
-class apache (
+class my_mod_apache (
   $package_name =  $apache::params::package_name,
   $service_name =  $apache::params::service_name,
   $config_file  =  $apache::params::config_file,
