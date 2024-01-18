@@ -1,4 +1,4 @@
-class profile::add_static_site_on_apache {
+class profile::add_dynamic_site_on_apache {
   class { 'apache':
     default_vhost => false,
     }
