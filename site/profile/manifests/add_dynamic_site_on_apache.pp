@@ -8,8 +8,9 @@ class profile::add_dynamic_site_on_apache {
       servername => '192.168.56.7/dynamic'
   }
   file { '/var/www/dynamic/index.php':
-    owner   => 'apache'
-    group   => 'apache'
-    content => file('examples/index.php')
+    ensure  => file,
+    owner   => 'apache',
+    group   => 'apache',
+    content => file('examples/index.php'),
   }
 }
