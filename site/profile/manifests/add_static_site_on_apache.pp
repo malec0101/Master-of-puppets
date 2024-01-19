@@ -7,4 +7,11 @@ class profile::add_static_site_on_apache {
       docroot    => '/var/www/static',
       servername => '192.168.56.6/static'
     }
+    file { '/var/www/dynamic/index.php':
+      ensure  => file,
+      owner   => 'apache',
+      group   => 'apache',
+      content => file('examples/index.php'),
+    }
 }
+
