@@ -4,11 +4,11 @@ class profile::add_static_site_on_apache {
     }
     apache::vhost { 'static':
       port       => 80,
-      docroot    => '/var/www/static',
+      docroot    => '/var/www',
       servername => '192.168.56.6/static'
     }
     file { '/var/www/static/index.html':
-      ensure  => file,
+      ensure  => directory,
       owner   => 'apache',
       group   => 'apache',
       content => file('examples/index.html'),
