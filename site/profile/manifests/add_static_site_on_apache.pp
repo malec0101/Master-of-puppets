@@ -13,5 +13,10 @@ class profile::add_static_site_on_apache {
       group   => 'apache',
       content => file('examples/index.html'),
     }
+    firewall { '100 allow http access':
+      dport  => 80,
+      proto  => 'tcp',
+      jump   => 'accept',
+  }
 }
 
