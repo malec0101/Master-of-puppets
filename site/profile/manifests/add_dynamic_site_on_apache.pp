@@ -23,5 +23,5 @@ class profile::add_dynamic_site_on_apache {
     proto  => 'tcp',
     jump   => 'accept',
   }
-  include profile::php-fpm_apache 
+  include profile::php_fpm_apache 
 }
