@@ -24,11 +24,6 @@ node 'default' {
 
 node 'slave1.puppet' {
   include role::apache_static_site
-  firewall { '100 allow ssh access':
-    dport  => 22,
-    proto  => 'tcp',
-    jump   => 'accept',
-  }
 }
 
 node 'slave2.puppet' {
