@@ -16,6 +16,7 @@ node /^slave\d+$\.puppet$/ {
   firewall { '100 open port 22':
     dport  => 22,
     proto  => 'tcp',
+    jump  => 'accept'
   }
 }
 ###############################################
@@ -24,6 +25,12 @@ node 'master.puppet' {
   firewall { '102 open port 8140':
     dport  => 8140,
     proto  => 'tcp',
+    jump  => 'accept'
+  }
+    firewall { '101 open port 80':
+    dport => 80,
+    proto => 'tcp',
+    jump  => 'accept'
   }
 }
 
@@ -32,6 +39,7 @@ node 'slave1.puppet' {
   firewall { '101 open port 80':
     dport  => 80,
     proto  => 'tcp',
+    jump  => 'accept'
   }
 }
 
@@ -40,6 +48,7 @@ node 'slave2.puppet' {
   firewall { '101 open port 80':
     dport  => 80,
     proto  => 'tcp',
+    jump  => 'accept'
   }
 }
 
@@ -48,5 +57,6 @@ node 'mineserver.puppet' {
   #firewall { '101 open port 80':
   # dport  => 80,
   #  proto  => 'tcp',
+  #  jump  => 'accept'
   #}
 }
