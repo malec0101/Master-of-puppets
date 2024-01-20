@@ -7,7 +7,7 @@ class profile::add_static_site_on_apache {
       docroot    => '/var/www',
       servername => '192.168.56.6/static'
     }
-    file { '/var/www/static/index.html':
+    file { '/var/www/static/':
       ensure  => directory,
       owner   => 'apache',
       group   => 'apache',
