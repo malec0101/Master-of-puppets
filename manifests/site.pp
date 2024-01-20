@@ -13,28 +13,25 @@ Firewall {
 
 # rules fw on slave.puppet 
 node /^slave\d+$\.puppet$/ {
-  firewall { '100 allow ssh access':
+  firewall { '100 open port 22':
     dport  => 22,
     proto  => 'tcp',
-    jump   => 'accept',
   }
 }
 ###############################################
 
 node 'slave1.puppet' {
   include role::apache_static_site
-  firewall { '101 allow httpd access':
+  firewall { '101 open port 80':
     dport  => 80,
     proto  => 'tcp',
-    jump   => 'accept',
   }
 }
 
 node 'slave2.puppet' {
   include role::apache_dynamic_site
-  firewall { '101 allow httpd access':
+  firewall { '101 open port 80':
     dport  => 80,
     proto  => 'tcp',
-    jump   => 'accept',
   }
 }
