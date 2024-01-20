@@ -22,9 +22,4 @@ class profile::add_dynamic_site_on_apache {
     group   => 'apache',
     content => file('examples/index.php'),
   }
-  firewall { '101 allow http access':
-    dport  => 80,
-    proto  => 'tcp',
-    jump   => 'accept',
-  }
 }

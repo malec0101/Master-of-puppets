@@ -15,6 +15,11 @@ Firewall {
 # default minimal conf 
 node 'default' {
   include profile::install_my_default_pkg
+  firewall { '099 allow puppetserver access':
+    dport  => 8140,
+    proto  => 'tcp',
+    jump   => 'accept',
+  }
   firewall { '100 allow ssh access':
     dport  => 22,
     proto  => 'tcp',
@@ -24,8 +29,18 @@ node 'default' {
 
 node 'slave1.puppet' {
   include role::apache_static_site
+  firewall { '101 allow httpd access':
+    dport  => 80,
+    proto  => 'tcp',
+    jump   => 'accept',
+  }
 }
 
 node 'slave2.puppet' {
   include role::apache_dynamic_site
+  firewall { '101 allow httpd access':
+    dport  => 80,
+    proto  => 'tcp',
+    jump   => 'accept',
+  }
 }
