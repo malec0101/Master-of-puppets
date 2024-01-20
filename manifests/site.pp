@@ -10,9 +10,8 @@ Firewall {
   }
 
   class { ['my_fw::pre', 'my_fw::post']: }
-###############################################
 
-# default minimal conf 
+# rules fw on slave.puppet 
 node /^slave\d+$\.puppet$/ {
   firewall { '100 allow ssh access':
     dport  => 22,
@@ -20,6 +19,7 @@ node /^slave\d+$\.puppet$/ {
     jump   => 'accept',
   }
 }
+###############################################
 
 node 'slave1.puppet' {
   include role::apache_static_site
