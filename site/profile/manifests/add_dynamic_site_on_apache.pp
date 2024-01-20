@@ -1,7 +1,11 @@
 class profile::add_dynamic_site_on_apache {
   class { 'apache':
     default_vhost => false,
+    mpm_module    => 'prefork',
     }
+    include apache::mod::php
+    include '::php'
+
     apache::vhost { 'dynamic':
       port       => 80,
       docroot    => '/var/www',
