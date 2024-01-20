@@ -13,13 +13,7 @@ Firewall {
 ###############################################
 
 # default minimal conf 
-node 'default' {
-  include profile::install_my_default_pkg
-  firewall { '099 allow puppetserver access':
-    dport  => 8140,
-    proto  => 'tcp',
-    jump   => 'accept',
-  }
+node /^slave\d+$\.puppet$/ {
   firewall { '100 allow ssh access':
     dport  => 22,
     proto  => 'tcp',
