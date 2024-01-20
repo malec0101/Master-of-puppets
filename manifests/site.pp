@@ -19,6 +19,13 @@ node /^slave\d+$\.puppet$/ {
   }
 }
 ###############################################
+node 'master.puppet' {
+  include role::rev_proxy_sites_static_dynamic
+  firewall { '102 open port 8140':
+    dport  => 8140,
+    proto  => 'tcp',
+  }
+}
 
 node 'slave1.puppet' {
   include role::apache_static_site
@@ -34,4 +41,12 @@ node 'slave2.puppet' {
     dport  => 80,
     proto  => 'tcp',
   }
+}
+
+node 'mineserver.puppet' {
+  #  include role::apachedynamic_site
+  #firewall { '101 open port 80':
+  # dport  => 80,
+  #  proto  => 'tcp',
+  #}
 }
