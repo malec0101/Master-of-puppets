@@ -5,7 +5,7 @@ class profile::nginx_rev_proxy_site_static_dynamic {
     members => {
       '192.168.56.6:80' => {
         server => '192.168.56.6',
-        port   => 80,
+        port   => 8080,
       },
       '192.168.56.7:80' => {
         server => '192.168.56.7',
