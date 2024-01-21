@@ -12,6 +12,7 @@ Firewall {
   class { ['my_fw::pre', 'my_fw::post']: }
 
 ###############################################
+
 node 'master.puppet' {
   include role::rev_proxy_sites_static_dynamic
 }
@@ -25,10 +26,5 @@ node 'slave2.puppet' {
 }
 
 node 'mineserver.puppet' {
-  #  include role::apachedynamic_site
-  #firewall { '101 open port 80':
-  # dport  => 80,
-  #  proto  => 'tcp',
-  #  jump  => 'accept',
-  #}
+  include profile::nginx_rev_proxy_site_static_dynamic
 }
