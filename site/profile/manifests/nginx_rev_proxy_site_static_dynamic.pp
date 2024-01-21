@@ -1,23 +1,9 @@
 class profile::nginx_rev_proxy_site_static_dynamic {
-  class{"nginx":
-    manage_repo => true,
+  class { "nginx":
+    manage_repo    => true,
     package_source => 'nginx-mainline'
 
   }
-
-  nginx::resource::upstream { 'upstream_app':
-    members => {
-      '192.168.56.6:80' => {
-        server => '192.68.56.6',
-        port   => 80,
-      }
-      '192.168.56.7:80' => {
-        server => '192.168.56.7',
-        port   => 80,
-      }
-    }
-  }
-
   nginx::resource::server{'192.168.56.5':
     www_root => '/opt/html/',
   }
