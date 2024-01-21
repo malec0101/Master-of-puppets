@@ -14,39 +14,14 @@ Firewall {
 ###############################################
 node 'master.puppet' {
   include role::rev_proxy_sites_static_dynamic
-  firewall { '102 open port 8140':
-    dport  => 8140,
-    proto  => 'tcp',
-    jump  => 'accept',
-  }
-    firewall { '101 open port 80':
-    dport => 80,
-    proto => 'tcp',
-    jump  => 'accept',
-  }
 }
 
 node 'slave1.puppet' {
   include role::apache_static_site
-  firewall { '101 open port 80':
-    dport  => 80,
-    proto  => 'tcp',
-    jump  => 'accept',
-  }
-  firewall { '102 open port 22':
-    dport  => 22,
-    proto  => 'tcp',
-    jump  => 'accept',
-  }  
 }
 
 node 'slave2.puppet' {
   include role::apache_dynamic_site
-  firewall { '101 open port 80':
-    dport  => 80,
-    proto  => 'tcp',
-    jump  => 'accept',
-  }
 }
 
 node 'mineserver.puppet' {
