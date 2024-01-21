@@ -12,7 +12,7 @@ Firewall {
   class { ['my_fw::pre', 'my_fw::post']: }
 
 ###############################################
-node 'master' {
+node 'master.puppet' {
   include role::rev_proxy_sites_static_dynamic
 }
 
