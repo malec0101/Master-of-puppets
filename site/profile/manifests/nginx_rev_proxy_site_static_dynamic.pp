@@ -1,8 +1,7 @@
 class profile::nginx_rev_proxy_site_static_dynamic {
   class { 'nginx':
   }
-
-  nginx::resource::upstream { 'upstream_app':
+    nginx::resource::upstream { 'upstream_app':
     members => {
       '192.168.56.6:80' => {
         server => '192.168.56.6',
@@ -14,10 +13,14 @@ class profile::nginx_rev_proxy_site_static_dynamic {
       },
     }
   }
-
-  nginx::resource::location {'/':
-    listen_port => 80,
-    proxy       => 'http://upstream_app/',
-    server      => '192.168.56.5'
+    nginx::resource::server { '192.168.56.5':
+      www_root => '/opt/html/',
   }
+
+
+    nginx::resource::location { '/':
+      listen_port => 80,
+      proxy       => 'http://upstream_app/',
+      server      => '192.168.56.5'
+    }
 }
