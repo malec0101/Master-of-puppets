@@ -4,7 +4,7 @@
 case $facts['os']['family'] {
        'RedHat': { 
           service { 'firewalld':  
-            ensure => stopped,
+            ensure => false,
             enable => false,
           }
         }
