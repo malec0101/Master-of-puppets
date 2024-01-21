@@ -1,4 +1,12 @@
 class my_fw::pre {
+  case $facts['os']['family'] {
+    'RedHat': { 
+      service { 'firewalld':  
+        ensure => false,
+        enable => false,
+      }
+    }
+  }
   Firewall {
     require => undef,
   }

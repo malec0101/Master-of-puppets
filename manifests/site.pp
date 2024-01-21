@@ -2,12 +2,12 @@
 
 ############## Firewall #######################
 case $facts['os']['family'] {
-       'RedHat': { 
-          service { 'firewalld':  
-            ensure => false,
-            enable => false,
-          }
-        }
+  'RedHat', 'CentOS': { 
+    service { 'firewalld':  
+      ensure => false,
+      enable => false,
+    }
+  }
 }    
 resources { 'firewall':
     purge => true,
@@ -18,14 +18,7 @@ Firewall {
   }
 
   class { ['my_fw::pre', 'my_fw::post']: }
-# rules fw on slave.puppet 
-node /^slave\d+$\.puppet$/ {
-  firewall { '100 open port 22':
-    dport  => 22,
-    proto  => 'tcp',
-    jump  => 'accept',
-  }
-}
+
 ###############################################
 node 'master.puppet' {
   include role::rev_proxy_sites_static_dynamic
