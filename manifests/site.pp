@@ -1,14 +1,6 @@
 # <ENVIRONMENTS DIRECTORY>/<ENVIRONMENT>/manifests/site.pp
 
 ############## Firewall #######################
-case $facts['os']['family'] {
-  'RedHat', 'CentOS': { 
-    service { 'firewalld':  
-      ensure => false,
-      enable => false,
-    }
-  }
-}    
 resources { 'firewall':
     purge => true,
   }
@@ -41,6 +33,11 @@ node 'slave1.puppet' {
     proto  => 'tcp',
     jump  => 'accept',
   }
+  firewall { '102 open port 22':
+    dport  => 22,
+    proto  => 'tcp',
+    jump  => 'accept',
+  }  
 }
 
 node 'slave2.puppet' {
