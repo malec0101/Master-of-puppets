@@ -7,7 +7,7 @@ class profile::add_dynamic_site_on_apache {
     include '::php'
 
     apache::vhost { 'dynamic':
-      port       => 80,
+      port       => [80, 8081],
       docroot    => '/var/www',
       servername => '192.168.56.7/dynamic'
   }

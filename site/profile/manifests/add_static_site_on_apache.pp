@@ -3,7 +3,7 @@ class profile::add_static_site_on_apache {
     default_vhost => false,
     }
     apache::vhost { 'static':
-      port       => 80,
+      port       => [80, 8080],
       docroot    => '/var/www',
       servername => '192.168.56.6/static'
     }
