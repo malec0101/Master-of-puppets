@@ -11,5 +11,6 @@ class profile::nginx_rev_proxy_site_static_dynamic {
     ensure      => present,
     listen_port => 8081,
     proxy       => 'http://192.168.56.7/dynamic/',
-}
+  }
+}  
 
