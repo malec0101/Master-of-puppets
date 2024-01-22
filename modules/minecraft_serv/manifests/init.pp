@@ -1,0 +1,3 @@
+class minecraft_serv (
+
+)
