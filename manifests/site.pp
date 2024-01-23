@@ -27,7 +27,7 @@ node 'slave2.puppet' {
 
 node 'mineserver.puppet' {
   class { 'minecraft_serv':
-    $Xmx = 1024m, 
-    $Xms = 512m,
+    Xmx => 1024m, 
+    Xms => 512m,
   }
 }
