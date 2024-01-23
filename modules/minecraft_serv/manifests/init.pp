@@ -1,6 +1,6 @@
 class minecraft_serv (
-  $xmx = minecraft_serv::minecraft_systd_servise::xmx 
-  $xms = minecraft_serv::minecraft_systd_servise::xms
+  # $xmx = minecraft_serv::minecraft_systd_servise::xmx 
+  # $xms = minecraft_serv::minecraft_systd_servise::xms
 ) {
   package { 'java-17-openjdk':
       ensure => installed,

@@ -1,0 +1,8 @@
+[Unit]
+Description=minecraft_server
+
+[Service]
+ExecStart=/usr/bin/java -Xmx512M -Xms512M -jar /opt/minecraft/server.jar nogui
+ExecStop=/usr/bin/java -jar /opt/minecraft/server.jar stop
+[Install]
+WantedBy=multi-user.target
