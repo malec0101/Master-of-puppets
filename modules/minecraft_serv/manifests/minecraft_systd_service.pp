@@ -6,7 +6,7 @@ class minecraft_serv::minecraf_systd_servise {
     owner   => 'root',
     group   => 'root',
     mode    => '0664',
-    content => epp('minecraft_serv/minecraf.servise.epp', {'Xmx' => '$xmx', 'Xms' => '$xms' }),
+    content => epp('minecraft_serv/minecraf.servise.epp', {'xmx' => '1024m', 'xms' => '512m' }),
     require => File['/opt/minecraft/server.jar'],
   }
   service { 'minecraf':
