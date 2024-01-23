@@ -1,4 +1,4 @@
-class minecraft_serv::minecraf_systd_servise {
+class minecraft_serv::minecraft_systd_servise {
   $xmx = '1024m'
   $xms = '512m'
   file { '/etc/systemd/system/minecraft.service':
