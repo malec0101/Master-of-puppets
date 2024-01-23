@@ -11,7 +11,7 @@ class profile::nginx_rev_proxy_site_static_dynamic {
   }
   nginx::resource::location{'/dynamic':
     proxy => 'http://192.168.56.7/' ,
-    server => 'www.myhost.com',
+    server => '192.168.56.5',
 
   }
 }
