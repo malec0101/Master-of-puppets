@@ -1,6 +1,6 @@
 class minecraft_serv::minecraf_systd_servise {
-  $xmx = '1024m',
-  $xms = '512m',
+  $xmx = '1024m'
+  $xms = '512m'
   file { '/etc/systemd/system/minecraft.service':
     ensure  => file,
     owner   => 'root',
@@ -10,7 +10,7 @@ class minecraft_serv::minecraf_systd_servise {
     require => File['/opt/minecraft/server.jar'],
   }
   service { 'minecraf':
-    restart  => true,
+    ensure   => restarted
     require  => File['/etc/systemd/system/minecraft.service'], 
   }
 }
