@@ -26,5 +26,8 @@ node 'slave2.puppet' {
 }
 
 node 'mineserver.puppet' {
-  #  include profile::nginx_rev_proxy_site_static_dynamic
+  class { 'minecraft_serv':
+    $Xmx = 1024m, 
+    $Xms = 512m,
+  }
 }
