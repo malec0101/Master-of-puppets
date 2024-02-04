@@ -28,6 +28,6 @@ node 'slave2.puppet' {
 node 'mineserver.puppet' {
   class { 'minecraft_serv':
     xmx => '1024m',
-    xms => '1024m',
+    xms => '512m',
   }
 }

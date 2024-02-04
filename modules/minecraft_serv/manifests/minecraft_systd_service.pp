@@ -8,6 +8,12 @@ class minecraft_serv::minecraft_systd_service {
     before  => Service['minecraft'],
   }
   service { 'minecraft':
-    ensure  => running
+    ensure => running
   }
+  file { '/opt/minecraft/eula.txt':
+    ensure  => file,
+    owner   => 'root',
+    group   => 'root',
+    content => file('minecraft_serv/eula.txt'),
+    require => Service['minecraft']
 }
