@@ -4,4 +4,3 @@ class minecraft_serv (
 ) {
   Class['minecraft_serv::install_java'] -> Class['minecraft_serv::download_minecraft'] -> Class['minecraft_serv::minecraft_systd_service']
 }
-  

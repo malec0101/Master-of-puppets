@@ -1,6 +1,6 @@
 class minecraft_serv::minecraft_systd_service {
   $xmx = '1024m',
-  $xms = '512m'
+  $xms = '512m',
   file { '/etc/systemd/system/minecraft.service':
     ensure  => file,
     #content   => file('minecraft_serv/minecraft.servise'),
@@ -9,6 +9,5 @@ class minecraft_serv::minecraft_systd_service {
   }
   service { 'minecraft':
     ensure  => restarted
-    require => File['/etc/systemd/system/minecraft.service']
   }
 }
