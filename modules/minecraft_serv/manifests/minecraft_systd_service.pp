@@ -6,8 +6,8 @@ class minecraft_serv::minecraft_systd_service {
     owner     => 'root',
     group     => 'root',
     mode      => '0664',
-    content   => file('minecraft_serv/minecraft.servise')
-    # content => epp('minecraft_serv/minecraf.servise.epp', {'xmx' => '1024m', 'xms' => '512m' }),
+    #content   => file('minecraft_serv/minecraft.servise')
+    content => epp('minecraft_serv/minecraf.servise.epp', {'xmx' => '1024m', 'xms' => '512m' }),
   }
   service { 'minecraf':
     ensure   => restarted
