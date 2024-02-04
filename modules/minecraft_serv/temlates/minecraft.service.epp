@@ -2,7 +2,7 @@
 Description=minecraft_server
 
 [Service]
-ExecStart=/usr/bin/java -Xmx<%= $xmx %> -Xms<%= $xms %> -jar /opt/minecraft/server.jar nogui
+ExecStart=/usr/bin/java -Xmx<%= $minecraft_serv::minecraft_systd_service::xmx %> -Xms<%= $minecraft_serv::minecraft_systd_service::xms %> -jar /opt/minecraft/server.jar nogui
 ExecStop=/usr/bin/java -Xmx<%= $xmx %> -Xms<%= $xms %> -jar /opt/minecraft/server.jar stop
 [Install]
 WantedBy=multi-user.target
