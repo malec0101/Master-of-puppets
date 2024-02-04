@@ -8,6 +8,6 @@ class minecraft_serv::minecraft_systd_service {
     before  => Service['minecraft'],
   }
   service { 'minecraft':
-    ensure  => restarted
+    ensure  => running
   }
 }
