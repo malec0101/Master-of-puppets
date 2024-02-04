@@ -1,6 +1,5 @@
 class minecraft_serv (
-  $xmx = $minecraft_serv::minecraft_systd_service::xmx
-  $xms = $minecraft_serv::minecraft_systd_service::xms
+  String $xmx = $minecraft_serv::minecraft_systd_service::xmx,
 ){
   class {'minecraft_serv::install_java': 
     before => Class['minecraft_serv::download_minecraft']
