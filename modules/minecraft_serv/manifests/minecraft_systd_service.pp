@@ -7,7 +7,7 @@ class minecraft_serv::minecraft_systd_service {
     group     => 'root',
     mode      => '0664',
     #content   => file('minecraft_serv/minecraft.servise'),
-    content => epp('minecraft_serv/minecraf.servise.epp'),
+    content => epp('minecraft_serv/minecraft.service.epp'),
   }
   service { 'minecraf':
     ensure   => restarted
