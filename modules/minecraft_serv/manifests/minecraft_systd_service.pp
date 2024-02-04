@@ -11,6 +11,5 @@ class minecraft_serv::minecraft_systd_service {
   }
   service { 'minecraf':
     ensure   => restarted
-    require  => File['/etc/systemd/system/minecraft.service'], 
   }
 }
