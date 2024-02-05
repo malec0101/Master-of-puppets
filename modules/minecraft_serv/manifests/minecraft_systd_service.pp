@@ -7,20 +7,20 @@ class minecraft_serv::minecraft_systd_service {
     content => epp('minecraft_serv/minecraft.service.epp'),
     before  => Service['minecraft']
   }
-  -> service { 'minecraft':
+  service { 'minecraft':
     ensure => running,
     enable => true,
   }
-  -> service { 'minecraft':
+  service { 'minecraft':
     ensure => stopped,
   }
-  -> file { '/opt/minecraft/eula.txt':
+  file { '/opt/minecraft/eula.txt':
     ensure  => file,
     owner   => 'root',
     group   => 'root',
     content => file('minecraft_serv/eula.txt'),
   }
-  -> service { 'minecraft':
+  service { 'minecraft':
     ensure => running,
   } 
 }
