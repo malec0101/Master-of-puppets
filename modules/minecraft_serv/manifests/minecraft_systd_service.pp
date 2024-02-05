@@ -4,10 +4,10 @@ class minecraft_serv::minecraft_systd_service {
   file { '/etc/systemd/system/minecraft.service':
     ensure  => file,
     content => epp('minecraft_serv/minecraft.service.epp'),
-    before  => Service['minecraft']
   }
   service { 'minecraft':
-    ensure => running,
-    enable => true,
+    ensure  => running,
+    enable  => true,
+    require => File['/etc/systemd/system/minecraft.service']
   }
 }
